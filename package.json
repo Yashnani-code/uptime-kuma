@@ -1,0 +1,12 @@
+{
+  "name": "uptime-kuma-project",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Uptime monitoring project",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
