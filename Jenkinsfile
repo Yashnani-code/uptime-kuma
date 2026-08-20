@@ -95,12 +95,12 @@ pipeline {
             }
         }
 
-        stage('Remove Container') {
-            steps {
-                sh 'docker stop uptime || true'
-                sh 'docker rm uptime || true'
-            }
-        }
+        stage('Remove Old Container') {
+    steps {
+        sh 'docker stop uptime-kuma || true'
+        sh 'docker rm uptime-kuma || true'
+    }
+}
 
         stage('Deploy to Container') {
             steps {
