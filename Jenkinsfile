@@ -15,7 +15,7 @@ pipeline {
         stage('Checkout from Git') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Milky19/uptime.git'
+                    url: 'https://github.com/Yashnani-code/uptime-kuma.git'
             }
         }
 
