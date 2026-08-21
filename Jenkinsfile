@@ -112,5 +112,16 @@ pipeline {
                 '''
             }
         }
+        stage('Docker Build & Push') {
+    steps {
+        withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+            sh '''
+                echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                docker build -t yashnani0512/uptime-kuma:latest .
+                docker push yashnani0512/uptime-kuma:latest
+            '''
+        }
+    }
+}
     }
 }
