@@ -112,7 +112,7 @@ pipeline {
                 '''
             }
         }
-        stage('Docker Build & Push') {
+         stage('Docker Build & Push') {
     steps {
         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
             sh '''
@@ -124,4 +124,4 @@ pipeline {
     }
 }
     }
-}
+}    
