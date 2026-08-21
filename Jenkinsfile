@@ -75,5 +75,13 @@ pipeline {
                 '''
             }
         }
+        stage('OWASP FS SCAN') {
+    steps {
+        catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+            dependencyCheck additionalArguments: '--scan ./ --format XML --format HTML --out .', odcInstallation: 'DP-Check'
+            dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+        }
+    }
+}
     }
 }
